@@ -1,5 +1,17 @@
 # Scikit-learn Tutorial
 
+This is a fork of Jake VanderPlas' excellent introduction to scikit-learn. It has been modified here and there, mostly to fit different time constraints for talks that I've had to give. It also contains some material from other sklearn tutorials, particularly those of Andy Mueller.
+
+Your best bet is to use git to clone this repository. Then you can run it from your local computer. 
+
+Alternatively, click on the button below and you'll be dumped into a *temporary* python environment, where you can run the notebooks.
+
+[![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/choldgraf/sklearn_tutorial)
+
+Below is the original readme for JVP's repository:
+
+=================
+
 *Jake VanderPlas*
 
 - email: <jakevdp@uw.edu>

@@ -11,20 +11,21 @@ from matplotlib.colors import ListedColormap
 cmap_light = ListedColormap(['#FFAAAA', '#AAFFAA', '#AAAAFF'])
 cmap_bold = ListedColormap(['#FF0000', '#00FF00', '#0000FF'])
 
-def plot_iris_knn():
+
+def plot_iris_classifier(est=None):
     iris = datasets.load_iris()
     X = iris.data[:, :2]  # we only take the first two features. We could
                         # avoid this ugly slicing by using a two-dim dataset
     y = iris.target
 
-    knn = neighbors.KNeighborsClassifier(n_neighbors=3)
-    knn.fit(X, y)
+    est = neighbors.KNeighborsClassifier(n_neighbors=3) if est is None else est
+    est.fit(X, y)
 
     x_min, x_max = X[:, 0].min() - .1, X[:, 0].max() + .1
     y_min, y_max = X[:, 1].min() - .1, X[:, 1].max() + .1
     xx, yy = np.meshgrid(np.linspace(x_min, x_max, 100),
                          np.linspace(y_min, y_max, 100))
-    Z = knn.predict(np.c_[xx.ravel(), yy.ravel()])
+    Z = est.predict(np.c_[xx.ravel(), yy.ravel()])
 
     # Put the result into a color plot
     Z = Z.reshape(xx.shape)
